@@ -9,7 +9,7 @@ It's now supeer easy to Switch front-ends to Attract Mode, Pegasu Fe, Emulations
 Tools for Pegasus and Attract Mode can be found under tools. (Please note that Attract-Mode is a work in progresss)
      
 Super easy one line Installer by opening terminal and typing:
-curl -sSL shorturl.at/bijlK | bash
+curl -sSL shorturl.at/izFV6 | bash
 
 Credit:
 Supreme Team,
