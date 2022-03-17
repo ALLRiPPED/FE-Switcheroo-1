@@ -171,7 +171,7 @@ if [ -d "$HOME"/RetroPie/retropiemenu/ ]; then
 echo -e "$(tput setaf 2)UPDATING FE SWITCHEROO NOW! $(tput sgr0)"
 sleep 3
 
-Remove old version of FE-Switcheroo#
+#Remove old version of FE-Switcheroo
 sudo rm -r "$HOME"/RetroPie/retropiemenu/icons/FE-Switcheroo.png
 sudo rm -R "$HOME"/RetroPie/retropiemenu/FE-Switcheroo.sh
 sudo rm -R /usr/local/bin/switcheroo
@@ -278,7 +278,7 @@ if [ -d "$HOME"/RetroPie/retropiemenu/ ]; then
 echo -e "$(tput setaf 2)INSTALLING FE SWITCHEROO NOW! $(tput sgr0)"
 sleep 3
 
-Remove old version of FE-Switcheroo#
+#Remove old version of FE-Switcheroo
 sudo rm -r "$HOME"/RetroPie/retropiemenu/icons/FE-Switcheroo.png
 sudo rm -R "$HOME"/RetroPie/retropiemenu/FE-Switcheroo.sh
 sudo rm -R /usr/local/bin/switcheroo
