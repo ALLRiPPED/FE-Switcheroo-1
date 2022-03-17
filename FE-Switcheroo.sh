@@ -952,8 +952,11 @@ else
   echo -e "$(tput setaf 2)Finished adding FE-Switcheroo to your gamlist! $(tput sgr0)"
 fi
 
-#Build attract lcations#
+#Build attract locations
+if [[ ! -e /opt/retropie/configs/all/attractmode/tools ]]; then
 mkdir "$HOME"/.attract/tools/
+fi
+
 cp "$HOME"/RetroPie/retropiemenu/FE-Switcheroo.sh -P "$HOME"/.attract/tools/
 chmod 755 "$HOME"/.attract/tools/
 
