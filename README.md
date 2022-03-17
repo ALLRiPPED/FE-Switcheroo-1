@@ -11,8 +11,8 @@ Tools for Pegasus and Attract Mode can be found under tools. (Please note that A
 Super easy one line Installer by opening terminal and typing:
 curl -sSL shorturl.at/DEMO | bash
 
-Crdit:
-Supreme Team
-Chad Ward
+Credit:
+Supreme Team,
+Chad Ward,
 Retro Devils
 
