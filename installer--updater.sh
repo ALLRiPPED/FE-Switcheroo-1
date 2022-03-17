@@ -70,11 +70,22 @@ if [ -d "$HOME"/RetroPie/retropiemenu/ ]; then
 echo -e "$(tput setaf 2)INSTALLING FE SWITCHEROO NOW! $(tput sgr0)"
 sleep 3
 
-Remove old version of FE-Switcheroo#
+#Remove old version of FE-Switcheroo
+if [[ -f "$HOME"/RetroPie/retropiemenu/icons/FE-Switcheroo.png ]]; then
 sudo rm -r "$HOME"/RetroPie/retropiemenu/icons/FE-Switcheroo.png
+fi
+
+if [[ -f "$HOME"/RetroPie/retropiemenu/FE-Switcheroo.sh ]]; then
 sudo rm -R "$HOME"/RetroPie/retropiemenu/FE-Switcheroo.sh
+fi
+
+if [[ -f /usr/local/bin/switcheroo ]]; then
 sudo rm -R /usr/local/bin/switcheroo
+fi 
+
+if [[ -f "$HOME"/.attract/tools/FE-Switcheroo.sh ]]; then
 sudo rm -r "$HOME"/.attract/tools/FE-Switcheroo.sh
+fi
 
 #Pulling latest script version#
 wget https://raw.githubusercontent.com/SupremePi/FE-Switcheroo/main/FE-Switcheroo.sh  -P "$HOME"/RetroPie/retropiemenu/
@@ -172,10 +183,21 @@ echo -e "$(tput setaf 2)UPDATING FE SWITCHEROO NOW! $(tput sgr0)"
 sleep 3
 
 #Remove old version of FE-Switcheroo
+if [[ -f "$HOME"/RetroPie/retropiemenu/icons/FE-Switcheroo.png ]]; then
 sudo rm -r "$HOME"/RetroPie/retropiemenu/icons/FE-Switcheroo.png
+fi
+
+if [[ -f "$HOME"/RetroPie/retropiemenu/FE-Switcheroo.sh ]]; then
 sudo rm -R "$HOME"/RetroPie/retropiemenu/FE-Switcheroo.sh
+fi
+
+if [[ -f /usr/local/bin/switcheroo ]]; then
 sudo rm -R /usr/local/bin/switcheroo
+fi 
+
+if [[ -f "$HOME"/.attract/tools/FE-Switcheroo.sh ]]; then
 sudo rm -r "$HOME"/.attract/tools/FE-Switcheroo.sh
+fi
 
 #Pulling latest script version#
 wget https://raw.githubusercontent.com/SupremePi/FE-Switcheroo/main/FE-Switcheroo-basic.sh  -P "$HOME"/RetroPie/retropiemenu/
