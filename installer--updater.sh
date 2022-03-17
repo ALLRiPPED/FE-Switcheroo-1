@@ -162,7 +162,7 @@ else
 fi
 
 #Build attract locations
-if [[ -! d /opt/retropie/configs/all/attractmode/tools ]]; then
+if [[ ! -e /opt/retropie/configs/all/attractmode/tools ]]; then
 mkdir "$HOME"/.attract/tools/
 fi
 
@@ -282,7 +282,7 @@ else
 fi
 
 #Build attract locations
-if [[ -! d /opt/retropie/configs/all/attractmode/tools ]]; then
+if [[ ! -e /opt/retropie/configs/all/attractmode/tools ]]; then
 mkdir "$HOME"/.attract/tools/
 fi
 
