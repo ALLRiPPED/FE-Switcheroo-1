@@ -46,13 +46,13 @@ function main_menu() {
         choice=$(dialog --backtitle "$BACKTITLE" --title "INSTALLER TOOL" \
             --ok-label OK --cancel-label Exit \
             --menu "What action would you like to perform?" 25 75 20 \
-            1 "Install or Update switcheroo" \
-            2 "Install or Update switcheroo Basic" \
+            1 "Install switcheroo" \
+            2 "Install Switcheroo Basic" \
             2>&1 > /dev/tty)
 
         case "$choice" in
             1) start-install-switcheroo ;;
-            2) start-install-switcheroo-basic  ;;
+            2) start-install-switcheroo-basic ;;
             *)  break ;;
         esac
     done
@@ -66,7 +66,6 @@ if [ $NETCONNECTED  = 1 ]; then
 	quit
 else
 
-if [ -d "$HOME"/RetroPie/retropiemenu/ ]; then
 echo -e "$(tput setaf 2)INSTALLING FE SWITCHEROO NOW! $(tput sgr0)"
 sleep 3
 
@@ -115,7 +114,6 @@ echo -e "$(tput setaf 2)UPDATE COMPLETE LAUNCHING SWITCHEROO! $(tput sgr0)"
 sleep 3
 "$HOME"/RetroPie/retropiemenu/frontendselector.sh
 sleep 2 
-fi
 
 else
 
@@ -128,7 +126,7 @@ sudo chmod +x /usr/local/bin/switcheroo
 fi
 
 #Pulling latest png file
-wget https://github.com/SupremePi/FE-Switcheroo/blob/main/FE-Switcheroo.png -P "$HOME"/RetroPie/retropiemenu/icons/
+wget https://raw.githubusercontent.com/SupremePi/FE-Switcheroo/main/FE-Switcheroo.png -P "$HOME"/RetroPie/retropiemenu/icons/
 sudo chmod +x "$HOME"/RetroPie/retropiemenu/FE-Switcheroo.sh
 
 #Do gamelist edits#
@@ -139,7 +137,7 @@ cat /tmp/gamelist.xml |grep -v "</gameList>" > /tmp/templist.xml
 
 ifexist=`cat /tmp/templist.xml |grep FE-Switcheroo |wc -l`
 
-if [[ ${ifexist} -gt 0 ]]; then
+if [[ ${ifexist} > 0 ]]; then
   echo -e "$(tput setaf 2)Skipping adding FE-Switcheroo to your gamlist it's already added! $(tput sgr0)"
   echo "already in gamelist.xml" > /tmp/exists
 else
@@ -173,13 +171,19 @@ sleep 3
 
 "$HOME"/RetroPie/retropiemenu/FE-Switcheroo.sh
 sleep 2
+
 fi
 fi
 }
 
-function intsall-switcheroo-basic() {
-if [ -d "$HOME"/RetroPie/retropiemenu/ ]; then
-echo -e "$(tput setaf 2)UPDATING FE SWITCHEROO NOW! $(tput sgr0)"
+function start-install-switcheroo-basic() {
+if [ $NETCONNECTED  = 1 ]; then
+        dialog  --sleep 1 --title "OFFLINE?" --msgbox " 
+        Your Offline. Please Connect To The Internet And Try Again! Now Backing Out To Main Menu!" 0 0 
+	quit
+else
+
+echo -e "$(tput setaf 2)INSTALLING FE SWITCHEROO NOW! $(tput sgr0)"
 sleep 3
 
 #Remove old version of FE-Switcheroo
@@ -227,7 +231,6 @@ echo -e "$(tput setaf 2)UPDATE COMPLETE LAUNCHING SWITCHEROO! $(tput sgr0)"
 sleep 3
 "$HOME"/RetroPie/retropiemenu/frontendselector.sh
 sleep 2 
-#fi
 
 else
 
@@ -240,7 +243,7 @@ sudo chmod +x /usr/local/bin/switcheroo
 fi
 
 #Pulling latest png file
-wget https://github.com/SupremePi/FE-Switcheroo/blob/main/FE-Switcheroo.png -P "$HOME"/RetroPie/retropiemenu/icons/
+wget https://raw.githubusercontent.com/SupremePi/FE-Switcheroo/main/FE-Switcheroo.png -P "$HOME"/RetroPie/retropiemenu/icons/
 sudo chmod +x "$HOME"/RetroPie/retropiemenu/FE-Switcheroo.sh
 
 #Do gamelist edits#
@@ -251,7 +254,7 @@ cat /tmp/gamelist.xml |grep -v "</gameList>" > /tmp/templist.xml
 
 ifexist=`cat /tmp/templist.xml |grep FE-Switcheroo |wc -l`
 
-if [[ ${ifexist} -gt 0 ]]; then
+if [[ ${ifexist} > 0 ]]; then
   echo -e "$(tput setaf 2)Skipping adding FE-Switcheroo to your gamlist it's already added! $(tput sgr0)"
   echo "already in gamelist.xml" > /tmp/exists
 else
@@ -280,12 +283,13 @@ mkdir "$HOME"/.attract/tools/
 cp "$HOME"/RetroPie/retropiemenu/FE-Switcheroo.sh -P "$HOME"/.attract/tools/
 chmod 755 "$HOME"/.attract/tools/
 
-echo -e "$(tput setaf 2)INSTALL COMPLETE LAUNCHING SWITCHEROO! $(tput sgr0)"
+echo -e "$(tput setaf 2)UPDATE COMPLETE LAUNCHING SWITCHEROO! $(tput sgr0)"
 sleep 3
-"$HOME"/RetroPie/retropiemenu/FE-Switcheroo.sh
-fi
 
+"$HOME"/RetroPie/retropiemenu/FE-Switcheroo.sh
 sleep 2
+
+fi
 fi
 }
 
