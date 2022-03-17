@@ -200,7 +200,7 @@ sudo rm -r "$HOME"/.attract/tools/FE-Switcheroo.sh
 fi
 
 #Pulling latest script version#
-wget https://raw.githubusercontent.com/SupremePi/FE-Switcheroo/main/FE-Switcheroo-basic.sh  -P "$HOME"/RetroPie/retropiemenu/
+wget https://raw.githubusercontent.com/SupremePi/FE-Switcheroo/main/FE-Switcheroo-basic.sh  -O "$HOME"/RetroPie/retropiemenu/FE-Switcheroo.sh
 sudo chmod +x /home/pi/RetroPie/retropiemenu/FE-Switcheroo.sh
 
 #If on a supreme build
