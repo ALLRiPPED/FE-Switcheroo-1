@@ -162,7 +162,7 @@ else
 fi
 
 #Build attract locations
-if [[ -! d "$HOME"/.attract/tools ]]; then
+if [[ -! d /opt/retropie/configs/all/attractmode/tools ]]; then
 mkdir "$HOME"/.attract/tools/
 fi
 
@@ -281,9 +281,8 @@ else
   echo -e "$(tput setaf 2)Finished adding FE-Switcheroo to your gamlist! $(tput sgr0)"
 fi
 
-
 #Build attract locations
-if [[ -! d "$HOME"/.attract/tools ]]; then
+if [[ -! d /opt/retropie/configs/all/attractmode/tools ]]; then
 mkdir "$HOME"/.attract/tools/
 fi
 
