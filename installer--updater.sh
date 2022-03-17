@@ -48,7 +48,6 @@ function main_menu() {
             --menu "What action would you like to perform?" 25 75 20 \
             1 "Install or Update switcheroo" \
             2 "Install or Update switcheroo Basic" \
-
             2>&1 > /dev/tty)
 
         case "$choice" in
@@ -129,7 +128,7 @@ cat /tmp/gamelist.xml |grep -v "</gameList>" > /tmp/templist.xml
 
 ifexist=`cat /tmp/templist.xml |grep FE-Switcheroo |wc -l`
 
-if [[ ${ifexist} > 0 ]]; then
+if [[ ${ifexist} -gt 0 ]]; then
   echo -e "$(tput setaf 2)Skipping adding FE-Switcheroo to your gamlist it's already added! $(tput sgr0)"
   echo "already in gamelist.xml" > /tmp/exists
 else
@@ -206,7 +205,7 @@ echo -e "$(tput setaf 2)UPDATE COMPLETE LAUNCHING SWITCHEROO! $(tput sgr0)"
 sleep 3
 "$HOME"/RetroPie/retropiemenu/frontendselector.sh
 sleep 2 
-fi
+#fi
 
 else
 
@@ -230,7 +229,7 @@ cat /tmp/gamelist.xml |grep -v "</gameList>" > /tmp/templist.xml
 
 ifexist=`cat /tmp/templist.xml |grep FE-Switcheroo |wc -l`
 
-if [[ ${ifexist} > 0 ]]; then
+if [[ ${ifexist} -gt 0 ]]; then
   echo -e "$(tput setaf 2)Skipping adding FE-Switcheroo to your gamlist it's already added! $(tput sgr0)"
   echo "already in gamelist.xml" > /tmp/exists
 else
@@ -337,7 +336,7 @@ cat /tmp/gamelist.xml |grep -v "</gameList>" > /tmp/templist.xml
 
 ifexist=`cat /tmp/templist.xml |grep FE-Switcheroo |wc -l`
 
-if [[ ${ifexist} > 0 ]]; then
+if [[ ${ifexist} -gt 0 ]]; then
   echo -e "$(tput setaf 2)Skipping adding FE-Switcheroo to your gamlist it's already added! $(tput sgr0)"
   echo "already in gamelist.xml" > /tmp/exists
 else
@@ -414,7 +413,7 @@ echo -e "$(tput setaf 2)UPDATE COMPLETE LAUNCHING SWITCHEROO! $(tput sgr0)"
 sleep 3
 "$HOME"/RetroPie/retropiemenu/frontendselector.sh
 sleep 2 
-fi
+#fi
 
 else
 
@@ -438,7 +437,7 @@ cat /tmp/gamelist.xml |grep -v "</gameList>" > /tmp/templist.xml
 
 ifexist=`cat /tmp/templist.xml |grep FE-Switcheroo |wc -l`
 
-if [[ ${ifexist} > 0 ]]; then
+if [[ ${ifexist} -gt 0 ]]; then
   echo -e "$(tput setaf 2)Skipping adding FE-Switcheroo to your gamlist it's already added! $(tput sgr0)"
   echo "already in gamelist.xml" > /tmp/exists
 else
