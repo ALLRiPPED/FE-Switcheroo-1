@@ -475,4 +475,15 @@ sleep 2
 fi
 }
 
+##############
+#-CHECK LIST-#
+##############
+
+wget -q --spider http://google.com
+if [ $? -eq 0 ]; then
+  NETCONNECTED=0
+else
+  NETCONNECTED=1
+fi
+
 install
