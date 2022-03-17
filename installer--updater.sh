@@ -37,7 +37,7 @@ infobox="${infobox}\n\n"
 
 dialog --backtitle "Switcheroo installer" \
 --title "Switcheroo" \
---msgbox "${infobox}" 35 110
+--msgbox "${infobox}" 0 0
 
 function main_menu() {
     local choice
@@ -45,7 +45,7 @@ function main_menu() {
     while true; do
         choice=$(dialog --backtitle "$BACKTITLE" --title "INSTALLER TOOL" \
             --ok-label OK --cancel-label Exit \
-            --menu "What action would you like to perform?" 25 75 20 \
+            --menu "What action would you like to perform?" 0 0 0 \
             1 "Install switcheroo" \
             2 "Install Switcheroo Basic" \
             2>&1 > /dev/tty)
