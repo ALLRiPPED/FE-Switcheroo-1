@@ -743,6 +743,13 @@ if [ ! -d /opt/retropie/configs/all/pegasus-fe/themes/flixnet ]; then
 fi
 fi
 }
+#-------PREVIEWS----# WORK IN PROGRESS
+#function view_neo() {
+#dialog  --sleep 1 --title "PREVIEW THEME" --msgbox "
+#This will play an30-45 second preview video.
+#Press any button to continue " 0 0
+#omxplayer "$HOME"/.helpers//previews/neoretro-preview.mp4
+#}
 
 function peg-help() {
 local choice
