@@ -208,7 +208,7 @@ function main_menu() {
             5) KODI_MODE ;;
 	    6) attract_helper ;;
    	    7) pegasus_helper ;;
-	    8) update-switcheroo ;;
+	    8) start-update-switcheroo ;;
             *)  break ;;
         esac
     done
@@ -857,15 +857,25 @@ if [ $NETCONNECTED  = 1 ]; then
 	quit
 else
 
-if [ -d "$HOME"/RetroPie/retropiemenu/ ]; then
 echo -e "$(tput setaf 2)UPDATING FE SWITCHEROO NOW! $(tput sgr0)"
 sleep 3
 
-Remove old version of FE-Switcheroo#
+#Remove old version of FE-Switcheroo
+if [[ -f "$HOME"/RetroPie/retropiemenu/icons/FE-Switcheroo.png ]]; then
 sudo rm -r "$HOME"/RetroPie/retropiemenu/icons/FE-Switcheroo.png
+fi
+
+if [[ -f "$HOME"/RetroPie/retropiemenu/FE-Switcheroo.sh ]]; then
 sudo rm -R "$HOME"/RetroPie/retropiemenu/FE-Switcheroo.sh
+fi
+
+if [[ -f /usr/local/bin/switcheroo ]]; then
 sudo rm -R /usr/local/bin/switcheroo
+fi 
+
+if [[ -f "$HOME"/.attract/tools/FE-Switcheroo.sh ]]; then
 sudo rm -r "$HOME"/.attract/tools/FE-Switcheroo.sh
+fi
 
 #Pulling latest script version#
 wget https://raw.githubusercontent.com/SupremePi/FE-Switcheroo/main/FE-Switcheroo.sh  -P "$HOME"/RetroPie/retropiemenu/
@@ -895,7 +905,6 @@ echo -e "$(tput setaf 2)UPDATE COMPLETE LAUNCHING SWITCHEROO! $(tput sgr0)"
 sleep 3
 "$HOME"/RetroPie/retropiemenu/frontendselector.sh
 sleep 2 
-fi
 
 else
 
@@ -908,7 +917,7 @@ sudo chmod +x /usr/local/bin/switcheroo
 fi
 
 #Pulling latest png file
-wget https://github.com/SupremePi/FE-Switcheroo/blob/main/FE-Switcheroo.png -P "$HOME"/RetroPie/retropiemenu/icons/
+wget https://raw.githubusercontent.com/SupremePi/FE-Switcheroo/main/FE-Switcheroo.png -P "$HOME"/RetroPie/retropiemenu/icons/
 sudo chmod +x "$HOME"/RetroPie/retropiemenu/FE-Switcheroo.sh
 
 #Do gamelist edits#
@@ -953,6 +962,7 @@ sleep 3
 
 "$HOME"/RetroPie/retropiemenu/FE-Switcheroo.sh
 sleep 2
+
 fi
 fi
 }

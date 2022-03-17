@@ -202,7 +202,7 @@ function main_menu() {
             3) EMULATIONSTATION_MODE ;;
             4) PEGASUS_MODE ;;
             5) KODI_MODE ;;
-	    6) intsall-switcheroo-basic ;;
+	    6) start-update-switcheroo-basic ;;
             *)  break ;;
         esac
     done
@@ -555,19 +555,35 @@ elif grep -q 'kodi \#auto' "$AUTOSTART"; then
 fi
 }
 
-function intsall-switcheroo-basic() {
-if [ -d "$HOME"/RetroPie/retropiemenu/ ]; then
+function start-update-switcheroo-basic() {
+if [ $NETCONNECTED  = 1 ]; then
+        dialog  --sleep 1 --title "OFFLINE?" --msgbox " 
+        Your Offline. Please Connect To The Internet And Try Again! Now Backing Out To Main Menu!" 0 0 
+	quit
+else
+
 echo -e "$(tput setaf 2)UPDATING FE SWITCHEROO NOW! $(tput sgr0)"
 sleep 3
 
-Remove old version of FE-Switcheroo#
+#Remove old version of FE-Switcheroo
+if [[ -f "$HOME"/RetroPie/retropiemenu/icons/FE-Switcheroo.png ]]; then
 sudo rm -r "$HOME"/RetroPie/retropiemenu/icons/FE-Switcheroo.png
+fi
+
+if [[ -f "$HOME"/RetroPie/retropiemenu/FE-Switcheroo.sh ]]; then
 sudo rm -R "$HOME"/RetroPie/retropiemenu/FE-Switcheroo.sh
+fi
+
+if [[ -f /usr/local/bin/switcheroo ]]; then
 sudo rm -R /usr/local/bin/switcheroo
+fi 
+
+if [[ -f "$HOME"/.attract/tools/FE-Switcheroo.sh ]]; then
 sudo rm -r "$HOME"/.attract/tools/FE-Switcheroo.sh
+fi
 
 #Pulling latest script version#
-wget https://raw.githubusercontent.com/SupremePi/FE-Switcheroo/main/FE-Switcheroo-basic.sh  -P "$HOME"/RetroPie/retropiemenu/
+wget https://raw.githubusercontent.com/SupremePi/FE-Switcheroo/main/FE-Switcheroo-basic.sh  -O "$HOME"/RetroPie/retropiemenu/FE-Switcheroo.sh
 sudo chmod +x /home/pi/RetroPie/retropiemenu/FE-Switcheroo.sh
 
 #If on a supreme build
@@ -594,7 +610,6 @@ echo -e "$(tput setaf 2)UPDATE COMPLETE LAUNCHING SWITCHEROO! $(tput sgr0)"
 sleep 3
 "$HOME"/RetroPie/retropiemenu/frontendselector.sh
 sleep 2 
-fi
 
 else
 
@@ -607,7 +622,7 @@ sudo chmod +x /usr/local/bin/switcheroo
 fi
 
 #Pulling latest png file
-wget https://github.com/SupremePi/FE-Switcheroo/blob/main/FE-Switcheroo.png -P "$HOME"/RetroPie/retropiemenu/icons/
+wget https://raw.githubusercontent.com/SupremePi/FE-Switcheroo/main/FE-Switcheroo.png -P "$HOME"/RetroPie/retropiemenu/icons/
 sudo chmod +x "$HOME"/RetroPie/retropiemenu/FE-Switcheroo.sh
 
 #Do gamelist edits#
@@ -647,12 +662,13 @@ mkdir "$HOME"/.attract/tools/
 cp "$HOME"/RetroPie/retropiemenu/FE-Switcheroo.sh -P "$HOME"/.attract/tools/
 chmod 755 "$HOME"/.attract/tools/
 
-echo -e "$(tput setaf 2)INSTALL COMPLETE LAUNCHING SWITCHEROO! $(tput sgr0)"
+echo -e "$(tput setaf 2)UPDATE COMPLETE LAUNCHING SWITCHEROO! $(tput sgr0)"
 sleep 3
-"$HOME"/RetroPie/retropiemenu/FE-Switcheroo.sh
-fi
 
+"$HOME"/RetroPie/retropiemenu/FE-Switcheroo.sh
 sleep 2
+
+fi
 fi
 }
 
