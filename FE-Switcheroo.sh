@@ -743,6 +743,7 @@ if [ ! -d /opt/retropie/configs/all/pegasus-fe/themes/flixnet ]; then
 fi
 fi
 }
+
 #-------PREVIEWS----# WORK IN PROGRESS
 #function view_neo() {
 #dialog  --sleep 1 --title "PREVIEW THEME" --msgbox "
