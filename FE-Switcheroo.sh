@@ -902,7 +902,7 @@ fi
 #/home/pi/.attract/ambootcheck/amromcheck.sh
 while pgrep omxplayer >/dev/null; do sleep 1; done
 (sleep 10; mpg123 -f 24576 -Z /home/pi/RetroPie/roms/music/*.mp3 >/dev/null 2>&1) &
-pegasus-fe #auto
+emulationstation #auto
 EOF123
 sudo chmod +x /opt/retropie/configs/all/autostart.sh
 
