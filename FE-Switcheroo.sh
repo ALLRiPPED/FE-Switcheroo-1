@@ -907,7 +907,9 @@ EOF123
 sudo chmod +x /opt/retropie/configs/all/autostart.sh
 
 sudo cp "$HOME"/RetroPie/retropiemenu/FE-Switcheroo.sh "$HOME"/RetroPie/retropiemenu/frontendselector.sh
+if [ -d /home/pi/RetroPie/scripts/.sb-unified/retropiemenu ]; then
 sudo mv "$HOME"/RetroPie/retropiemenu/FE-Switcheroo.sh "$HOME"/RetroPie/scripts/.sb-unified/retropiemenu/frontendselector.sh
+fi
 
 echo -e "$(tput setaf 2)UPDATE COMPLETE LAUNCHING SWITCHEROO! $(tput sgr0)"
 sleep 3
