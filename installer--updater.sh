@@ -91,7 +91,7 @@ wget https://raw.githubusercontent.com/SupremePi/FE-Switcheroo/main/FE-Switchero
 sudo chmod +x /home/pi/RetroPie/retropiemenu/FE-Switcheroo.sh
 
 #If on a supreme build
-if [ -f /usr/bin/suprememarqueetool ]; then
+if [ -d /home/pi/RetroPie/scripts/.sb-unified/retropiemenu ]; then
 
 sudo cat <<\EOF123 > "/opt/retropie/configs/all/autostart.sh"
 #isdual=`tvservice -l |grep "2 attached device" |wc -l`
@@ -210,7 +210,7 @@ wget https://raw.githubusercontent.com/SupremePi/FE-Switcheroo/main/FE-Switchero
 sudo chmod +x /home/pi/RetroPie/retropiemenu/FE-Switcheroo.sh
 
 #If on a supreme build
-if [ -f /usr/bin/suprememarqueetool ]; then
+if [ -d /home/pi/RetroPie/scripts/.sb-unified/retropiemenu ]; then
 
 sudo cat <<\EOF123 > "/opt/retropie/configs/all/autostart.sh"
 #isdual=`tvservice -l |grep "2 attached device" |wc -l`
