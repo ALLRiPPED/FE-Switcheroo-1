@@ -916,7 +916,7 @@ sleep 3
 "$HOME"/RetroPie/retropiemenu/frontendselector.sh
 sleep 2 
 
-else
+fi
 
 #Adding bin launcher#
 if [ ! -f /usr/local/bin/switcheroo ]; then
@@ -976,7 +976,6 @@ sleep 3
 "$HOME"/RetroPie/retropiemenu/FE-Switcheroo.sh
 sleep 2
 
-fi
 fi
 }
 
