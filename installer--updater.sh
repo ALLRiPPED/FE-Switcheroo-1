@@ -176,7 +176,6 @@ sleep 3
 sleep 2
 
 fi
-fi
 }
 
 function start-install-switcheroo-basic() {
@@ -237,7 +236,7 @@ sleep 3
 "$HOME"/RetroPie/retropiemenu/frontendselector.sh
 sleep 2 
 
-else
+fi
 
 #Adding bin launcher#
 if [ ! -f /usr/local/bin/switcheroo ]; then
